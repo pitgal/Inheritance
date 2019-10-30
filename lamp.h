@@ -3,6 +3,7 @@
 struct ISwitchable {
 	virtual void On() = 0;
 	virtual void Off() = 0;
+//  virtual ~ISwitchable(){}
 };
  
 class Switch {
@@ -17,6 +18,9 @@ class Switch {
  
 class Lamp :public ISwitchable {
  public:
+  Lamp();
+  virtual ~Lamp();
+  
   void On() override {
   	m_lighting = true;
   	Print();
@@ -33,5 +37,8 @@ class Lamp :public ISwitchable {
 };
  
 class BigLamp :public Lamp {
+ public:
+  BigLamp();
+  virtual ~BigLamp() override;
   virtual void Print() const override;
 };
