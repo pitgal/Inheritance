@@ -4,7 +4,7 @@
 class Lamp :public ISwitchable {
  public:
   Lamp();
-  virtual ~Lamp() override;
+  ~Lamp() override; //destruktor jest wirtualny poniewa¿ klasa bazowa ma wirtualny destruktor
   
   void On() override {
   	m_lighting = true;

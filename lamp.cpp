@@ -11,7 +11,7 @@ Lamp::~Lamp() {
 }	
 
 void Lamp::Print() const {
-  std::cout << "Lamp " << (IsLighting() ? "on" : "off") << endl;
+  cout << "Lamp " << (IsLighting() ? "on" : "off") << endl;
 }
 
 bool Lamp::IsLighting() const { 
