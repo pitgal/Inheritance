@@ -2,14 +2,6 @@
 #include <iostream>
 using namespace std;
 
-void Switch::Toggle() {
-  if (m_state)
-    m_switchable.Off();
-  else 
-    m_switchable.On();
-  m_state = !m_state;  
-}
-
 Lamp::Lamp() {
   cout << "Lamp::Lamp()\n"; 
 }	

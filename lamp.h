@@ -1,25 +1,10 @@
 #pragma once
+#include "switchable.h"
 
-struct ISwitchable {
-	virtual void On() = 0;
-	virtual void Off() = 0;
-//  virtual ~ISwitchable(){}
-};
- 
-class Switch {
- public:
-  Switch(ISwitchable& switchable) : m_switchable(switchable) {}
-	void Toggle();
-
- private:
-  bool m_state = false;
-  ISwitchable& m_switchable; 
-};
- 
 class Lamp :public ISwitchable {
  public:
   Lamp();
-  virtual ~Lamp();
+  virtual ~Lamp() override;
   
   void On() override {
   	m_lighting = true;
@@ -39,6 +24,6 @@ class Lamp :public ISwitchable {
 class BigLamp :public Lamp {
  public:
   BigLamp();
-  virtual ~BigLamp() override;
+  ~BigLamp() override; //destruktor jest wirtualny poniewa¿ klasa bazowa ma wirtualny destruktor
   virtual void Print() const override;
 };
