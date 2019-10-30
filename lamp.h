@@ -6,18 +6,16 @@ struct ISwitchable {
 };
  
 class Switch {
-  bool m_state = false;
-  ISwitchable& m_switchable;
- 
  public:
   Switch(ISwitchable& switchable) : m_switchable(switchable) {}
-  
 	void Toggle();
+
+ private:
+  bool m_state = false;
+  ISwitchable& m_switchable; 
 };
  
 class Lamp :public ISwitchable {
-	bool m_lighting = false;
- 
  public:
   void On() override {
   	m_lighting = true;
@@ -29,6 +27,9 @@ class Lamp :public ISwitchable {
   }
   virtual void Print() const;
   virtual bool IsLighting() const;
+
+ private:
+ 	bool m_lighting = false;
 };
  
 class BigLamp :public Lamp {
